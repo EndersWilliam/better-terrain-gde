@@ -15,50 +15,14 @@ jobs:
             float-precision: single
             arch: x86_64
             target-type: template_debug
-            os: ubuntu-20.04
-
-          - platform: windows
-            float-precision: single
-            arch: x86_32
-            target-type: template_debug
-            os: windows-latest
-
-          - platform: windows
-            float-precision: single
-            arch: x86_64
-            target-type: template_debug
-            os: windows-latest
-
-          - platform: macos
-            float-precision: single
-            arch: universal
-            target-type: template_debug
-            os: macos-latest
+            os: ubuntu-24.04
           
         # Release templates
           - platform: linux
             float-precision: single
             arch: x86_64
             target-type: template_release
-            os: ubuntu-20.04
-
-          - platform: windows
-            float-precision: single
-            arch: x86_32
-            target-type: template_release
-            os: windows-latest
-
-          - platform: windows
-            float-precision: single
-            arch: x86_64
-            target-type: template_release
-            os: windows-latest
-
-          - platform: macos
-            float-precision: single
-            arch: universal
-            target-type: template_release
-            os: macos-latest
+            os: ubuntu-24.04
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -105,7 +69,7 @@ jobs:
           path: |
             ${{ github.workspace }}/bin/**
   merge:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Merge Artifacts
